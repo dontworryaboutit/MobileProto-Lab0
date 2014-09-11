@@ -4,6 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MyActivity extends ActionBarActivity {
@@ -12,8 +15,14 @@ public class MyActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+        setupViews();
     }
 
+    private void setupViews() {
+        TextView textView = (TextView) findViewById(R.id.my_text_view);
+        textView.setOnClickListener(OnClickListeners.getMyTextListener(this));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
